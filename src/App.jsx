@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
-
+// App here
 const App = () => {
   return (
     <div className="h-screen w-screen bg-gradient-to-br from-blue-900 via-gray-800 to-blue-700 text-white flex flex-col justify-center items-center relative overflow-hidden">
