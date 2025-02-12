@@ -17,7 +17,7 @@ import { Outlet } from "react-router";
 
 function Layout() {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
+    <div className="flex justify-center items-center min-h-screen w-full bg-gray-100">
       <Outlet />
     </div>
   );

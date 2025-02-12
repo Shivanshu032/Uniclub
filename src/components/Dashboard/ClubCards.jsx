@@ -3,9 +3,12 @@ import { motion } from "framer-motion"
 const clubs = [
   {
     id: 1,
-    name: "Photography Club",
-    description: "Capture moments and share your passion for photography",
-    image: "/placeholder.svg?height=100&width=100",
+    name: "Google Developer Student Club",
+    description: "Learn new technologies and collaborate on projects with peers and mentors",
+    
+    image: "/GDG.png?height=100&width=100",
+    //give code to break line after description
+    
     category: "Arts",
   },
   {
