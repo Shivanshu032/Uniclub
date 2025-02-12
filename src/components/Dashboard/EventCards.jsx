@@ -93,9 +93,9 @@ export default function EventCards({ searchTerm, activeFilter, showAll, setShowA
             height={100}
             className="rounded-lg mb-4 w-full object-cover"
           />
-          <h3 className="text-xl font-semibold mb-2">{event.name}</h3>
-          <p className="text-gray-300 mb-4">{event.description}</p>
-          <div className="flex justify-between items-center">
+          <h3 className="text-xl font-semibold mb-2 h-[8%]">{event.name}</h3>
+          <p className="text-gray-300 mb-4 h-[8%]">{event.description}</p>
+          <div className="flex justify-between items-center ">
             <div className="flex space-x-2">
               {event.tags.map((tag) => (
                 <span key={tag} className="inline-block bg-pink-600 text-white text-xs px-2 py-1 rounded">
