@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 // Mock data (in a real app, this would be fetched from an API)
 const clubData = {
   id: 1,
-  name: "Eloquence Shivanshu",
+  name: "Eloquence Consortium",
   tagline: "Developing Personality and Communication Skills",
   banner: "/placeholder.svg?height=300&width=1200&text=Eloquence+Consortium+Banner",
   description:
