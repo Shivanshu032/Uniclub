@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export default function UserProfile() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate(); // Initialize navigation
 
   // Dummy user data (replace this with real user data later)
   const user = {
@@ -10,10 +12,23 @@ export default function UserProfile() {
     profileImage: "/GDG.png", // Image stored in the public folder
   };
 
+  // Logout Function
+  const handleLogout = () => {
+    // (Optional) Clear user session (e.g., remove token)
+    localStorage.removeItem("token"); // If using authentication
+
+    // Navigate to home page
+    navigate("/");
+  };
+
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       {/* Profile Image */}
-      <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+      <button className="focus:outline-none">
         <img
           src={user.profileImage}
           alt="User Profile"
@@ -30,7 +45,12 @@ export default function UserProfile() {
           </div>
           <ul>
             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Settings</li>
-            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-600">Logout</li>
+            <li
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-600"
+              onClick={handleLogout} // Call logout function on click
+            >
+              Logout
+            </li>
           </ul>
         </div>
       )}
