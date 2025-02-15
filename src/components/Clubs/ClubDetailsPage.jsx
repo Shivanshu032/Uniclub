@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router"
+import { Button } from "@/components/ui/Button"
 import { ChevronDown, ChevronUp, Calendar, MapPin, Clock, Facebook, Twitter, Instagram } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -13,7 +14,7 @@ const clubData = {
   president: {
     name: "Jane Doe",
     email: "jane.doe@example.com",
-    image: "/placeholder.svg?height=100&width=100&text=JD",
+    image: "/GDG.png",
   },
   established: "2020-09-01",
   category: "Cultural",
@@ -52,7 +53,7 @@ const clubData = {
     },
   ],
   gallery: [
-    "/placeholder.svg?height=200&width=300&text=Event+1",
+    "/GDG.png",
     "/placeholder.svg?height=200&width=300&text=Event+2",
     "/placeholder.svg?height=200&width=300&text=Event+3",
     "/placeholder.svg?height=200&width=300&text=Event+4",
@@ -96,21 +97,9 @@ export default function ClubDetailsPage() {
 
   return (
     <div
-      className={`min-h-screen bg-background text-foreground transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+      className={`min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-500 text-white transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
     >
-      {/* Breadcrumb */}
-      <div className="bg-card text-card-foreground py-2 px-4">
-        <div className="container mx-auto">
-          <Link href="/" className="hover:underline">
-            Home
-          </Link>{" "}
-          &gt;{" "}
-          <Link href="/clubs" className="hover:underline">
-            Clubs
-          </Link>{" "}
-          &gt; {clubData.name}
-        </div>
-      </div>
+
 
       {/* Header */}
       <header className="relative h-64 md:h-80 lg:h-96">
@@ -130,16 +119,16 @@ export default function ClubDetailsPage() {
         {/* About Section */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">About Us</h2>
-          <Card>
+          <Card className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}>
             <CardContent className="p-6">
               <p className={`text-muted-foreground ${showFullDescription ? "" : "line-clamp-3"}`}>
                 {clubData.description}
               </p>
               {clubData.description.length > 200 && (
-                <button
-                  variant="link"
+                <Button
+                  variant="default"
                   onClick={() => setShowFullDescription(!showFullDescription)}
-                  className="mt-2 p-0"
+                  className="mt-2 p-0 text-white cursor-pointer"
                 >
                   {showFullDescription ? (
                     <>
@@ -150,7 +139,7 @@ export default function ClubDetailsPage() {
                       Read More <ChevronDown className="ml-1 h-4 w-4" />
                     </>
                   )}
-                </button>
+                </Button>
               )}
             </CardContent>
           </Card>
@@ -160,7 +149,7 @@ export default function ClubDetailsPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Key Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card>
+            <Card className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}d>
               <CardHeader>
                 <CardTitle>Club President</CardTitle>
               </CardHeader>
@@ -180,7 +169,7 @@ export default function ClubDetailsPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}>
               <CardHeader>
                 <CardTitle>Established</CardTitle>
               </CardHeader>
@@ -188,7 +177,7 @@ export default function ClubDetailsPage() {
                 <p>{new Date(clubData.established).toLocaleDateString()}</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}>
               <CardHeader>
                 <CardTitle>Category</CardTitle>
               </CardHeader>
@@ -196,7 +185,7 @@ export default function ClubDetailsPage() {
                 <p>{clubData.category}</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card  className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}>
               <CardHeader>
                 <CardTitle>Meeting Schedule</CardTitle>
               </CardHeader>
@@ -218,10 +207,10 @@ export default function ClubDetailsPage() {
         {/* Membership Section */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Membership</h2>
-          <Card>
+          <Card  className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}>
             <CardContent className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <button className="bg-primary text-primary-foreground hover:bg-primary/90">Join Club</button>
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Join Club</Button>
                 <p className="text-muted-foreground">Current Members: {clubData.members.length}</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -247,7 +236,7 @@ export default function ClubDetailsPage() {
           <h2 className="text-2xl font-semibold mb-4">Upcoming Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clubData.upcomingEvents.map((event) => (
-              <Card key={event.id}>
+              <Card key={event.id}  className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}>
                 <CardHeader>
                   <CardTitle>{event.name}</CardTitle>
                 </CardHeader>
@@ -259,7 +248,7 @@ export default function ClubDetailsPage() {
                     <Clock className="mr-2 h-4 w-4" /> {event.time}
                   </p>
                   <p className="text-muted-foreground mb-4">{event.description}</p>
-                  <button variant="outline">RSVP</button>
+                  <Button variant="outline">RSVP</Button>
                 </CardContent>
               </Card>
             ))}
@@ -287,7 +276,7 @@ export default function ClubDetailsPage() {
         {/* Announcements Section */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Announcements</h2>
-          <Card>
+          <Card  className={`bg-gradient-to-br from-blue-700 to-fuchsia-950 text-white`}>
             <CardContent className="p-6">
               {clubData.announcements.map((announcement) => (
                 <div key={announcement.id} className="mb-4 last:mb-0">
@@ -303,47 +292,7 @@ export default function ClubDetailsPage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-card text-card-foreground py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-              <p>Email: contact@eloquenceconsortium.com</p>
-              <p>Phone: (123) 456-7890</p>
-            </div>
-            <div className="flex space-x-4">
-              <a
-                href={clubData.socialMedia.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80"
-              >
-                <Facebook />
-              </a>
-              <a
-                href={clubData.socialMedia.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80"
-              >
-                <Twitter />
-              </a>
-              <a
-                href={clubData.socialMedia.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80"
-              >
-                <Instagram />
-              </a>
-            </div>
-          </div>
-          <div className="mt-4 text-center text-sm text-muted-foreground">
-            © 2023 Eloquence Consortium. All rights reserved.
-          </div>
-        </div>
-      </footer>
+
     </div>
   )
 }

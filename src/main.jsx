@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from "react-router-dom"
 
-import { Layout, LoginPage, Dashboard } from './components/index.js'
+import { Layout, LoginPage, Dashboard, ClubDetailsPage } from './components/index.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,6 +12,7 @@ const router = createBrowserRouter(
       <Route path="" element={<App />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/club-details" element={<ClubDetailsPage />} />
     </Route>
   )
 )
