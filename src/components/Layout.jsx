@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router";
+import { Navbar } from ".";
 
 // function Layout() {
 //   return (
@@ -17,7 +18,8 @@ import { Outlet } from "react-router";
 
 function Layout() {
   return (
-    <div className="flex justify-center items-center min-h-screen w-full bg-gray-100">
+    <div className="flex-col justify-center items-center min-h-screen w-full overflow-x-hidden">
+      <Navbar />
       <Outlet />
     </div>
   );

@@ -90,7 +90,7 @@ export default function ClubCards({ searchTerm, activeFilter, showAll, setShowAl
             <h3 className="text-xl font-semibold">{club.name}</h3>
           </div>
           <p className="text-gray-300 mb-4 h-[35%]">{club.description}</p>
-          <span className="inline-block bg-orange-400 text-white text-xs px-2 py-1 rounded">{club.category}</span>
+          <span className="inline-block bg-orange-500 text-white text-xs px-2 py-1 rounded">{club.category}</span>
         </motion.div>
       ))}
       {filteredClubs.length > 6 && (

@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 const clubData = {
   id: 1,
   name: "Eloquence Shivanshu",
+  tagline: "Developing Personality and Communication Skills",
   banner: "/placeholder.svg?height=300&width=1200&text=Eloquence+Consortium+Banner",
   description:
     "The Eloquence Consortium is dedicated to developing personality and communication skills among university students. We provide a platform for students to enhance their public speaking, debate, and interpersonal skills through workshops, competitions, and regular practice sessions.",
@@ -99,23 +100,27 @@ export default function ClubDetailsPage() {
     <div
       className={`min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-500 text-white transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}
     >
-
-
-      {/* Header */}
-      <header className="relative h-64 md:h-80 lg:h-96">
-        <img
-          src={clubData.banner || "/placeholder.svg"}
-          alt={`${clubData.name} banner`}
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">{clubData.name}</h1>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-20">
+        {/* Header */}
+        <section className="mb-30 pt-12">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-center gap-2">
+              <div className="rounded-full overflow-hidden h-16 w-16 bg-white flex items-center justify-center">
+                <img
+                  src={clubData.banner}
+                  alt={clubData.name}
+                  className="h-40 w-full object-cover rounded-lg"
+                />
+              </div>
+              <div>
+                <h1 className="text-4xl font-semibold">{clubData.name}</h1>
+              </div>
+            </div>
+            <div>
+              {clubData.tagline && <p className="text-lg text-muted-foreground italic">{clubData.tagline}</p>}
+            </div>
+          </div>
+        </section>
         {/* About Section */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">About Us</h2>
@@ -291,8 +296,6 @@ export default function ClubDetailsPage() {
           </Card>
         </section>
       </main>
-
-
     </div>
   )
 }
